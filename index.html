@@ -237,36 +237,49 @@
             // Scroll to the bottom of the chat
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
+// Function to simulate bot response
+async function getBotResponse(userMessage) {
+    const lowerCaseMessage = userMessage.toLowerCase();
+    let response = "I'm sorry, I don't have information on that specific query yet. Can you please rephrase or ask about common insurance topics?";
 
-        // Function to simulate bot response
-        async function getBotResponse(userMessage) {
-            const lowerCaseMessage = userMessage.toLowerCase();
-            let response = "I'm sorry, I don't have information on that specific query yet. Can you please rephrase or ask about common insurance topics?";
+    if (lowerCaseMessage.includes("hello") || lowerCaseMessage.includes("hi")) {
+        response = "Hello there! How can I help you with your insurance needs today?";
+    } else if (lowerCaseMessage.includes("policy status") || lowerCaseMessage.includes("my policy")) {
+        response = "To check your policy status, please provide your policy number. I can then look it up for you.";
+    } else if (lowerCaseMessage.includes("renew my policy") || lowerCaseMessage.includes("policy renewal")) {
+        response = "You can renew your policy online through our website's 'Renewals' section, or I can connect you to a representative. What's your policy type?";
+    } else if (lowerCaseMessage.includes("contact support") || lowerCaseMessage.includes("speak to someone") || lowerCaseMessage.includes("customer service")) {
+        response = "Our customer support team is available from 9 AM to 6 PM IST, Monday to Friday. You can call us at 1800-123-4567 or email support@shadowinsure.com.";
+    } else if (lowerCaseMessage.includes("deductible") || lowerCaseMessage.includes("premium")) {
+        response = "A deductible is the amount you pay out-of-pocket before your insurance starts to cover costs. A premium is your regular payment for coverage. Which one would you like to know more about?";
+    } else if (lowerCaseMessage.includes("add beneficiary") || lowerCaseMessage.includes("change beneficiary")) {
+        response = "To add or change a beneficiary, please log in to your account on our portal and navigate to the 'Policy Details' section. You can also request a form via email.";
+    } else if (lowerCaseMessage.includes("what is covered") || lowerCaseMessage.includes("coverage details")) {
+        response = "Coverage varies by policy type. Are you asking about health, life, auto, or home insurance coverage?";
+    }
+    else if (lowerCaseMessage.includes("policy")) {
+        response = "Are you looking for information on life insurance, health insurance, or general insurance policies?";
+    } else if (lowerCaseMessage.includes("claim")) {
+        response = "To assist with claims, please tell me the type of insurance and your policy number.";
+    } else if (lowerCaseMessage.includes("health insurance")) {
+        response = "Health insurance policies cover medical expenses. Do you want to know about coverage, premiums, or claims process?";
+    } else if (lowerCaseMessage.includes("life insurance")) {
+        response = "Life insurance provides financial security for your loved ones. What specific information are you looking for?";
+    } else if (lowerCaseMessage.includes("quote") || lowerCaseMessage.includes("price")) {
+        response = "I can help you with a quote. What type of insurance are you interested in?";
+    } else if (lowerCaseMessage.includes("thank you") || lowerCaseMessage.includes("thanks")) {
+        response = "You're welcome! Is there anything else I can assist you with?";
+    } else if (lowerCaseMessage.includes("bye") || lowerCaseMessage.includes("goodbye")) {
+        response = "Goodbye! Have a great day. Feel free to reach out if you have more questions.";
+    }
+    // Add more sophisticated responses here for the hackathon!
+    // For the hackathon, this is where you would integrate LLM calls or a more advanced knowledge retrieval system.
 
-            if (lowerCaseMessage.includes("hello") || lowerCaseMessage.includes("hi")) {
-                response = "Hello there! How can I help you with your insurance needs today?";
-            } else if (lowerCaseMessage.includes("policy")) {
-                response = "Are you looking for information on life insurance, health insurance, or general insurance policies?";
-            } else if (lowerCaseMessage.includes("claim")) {
-                response = "To assist with claims, please tell me the type of insurance and your policy number.";
-            } else if (lowerCaseMessage.includes("health insurance")) {
-                response = "Health insurance policies cover medical expenses. Do you want to know about coverage, premiums, or claims process?";
-            } else if (lowerCaseMessage.includes("life insurance")) {
-                response = "Life insurance provides financial security for your loved ones. What specific information are you looking for?";
-            } else if (lowerCaseMessage.includes("quote") || lowerCaseMessage.includes("price")) {
-                response = "I can help you with a quote. What type of insurance are you interested in?";
-            } else if (lowerCaseMessage.includes("thank you") || lowerCaseMessage.includes("thanks")) {
-                response = "You're welcome! Is there anything else I can assist you with?";
-            } else if (lowerCaseMessage.includes("bye") || lowerCaseMessage.includes("goodbye")) {
-                response = "Goodbye! Have a great day. Feel free to reach out if you have more questions.";
-            }
-            // Add more sophisticated responses here for the hackathon!
-            // For the hackathon, this is where you would integrate LLM calls or a more advanced knowledge retrieval system.
+    return new Promise(resolve => {
+        setTimeout(() => resolve(response), 1000); // Simulate network delay
+    });
+}
 
-            return new Promise(resolve => {
-                setTimeout(() => resolve(response), 1000); // Simulate network delay
-            });
-        }
 
         // Function to make the bot speak
         function speak(text) {
