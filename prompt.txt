@@ -1,0 +1,26 @@
+# SHADOW INSURE BOT: Prompting Strategy
+
+**Objective:** To simulate a conversational voice AI assistant for insurance queries.
+
+**Current Logic (as implemented in getBotResponse function):**
+The bot processes user input by converting it to lowercase and checking for the presence of specific keywords.
+
+**Keyword-Response Mapping:**
+- "hello", "hi": "Hello there! How can I help you with your insurance needs today?"
+- "policy": "Are you looking for information on life insurance, health insurance, or general insurance policies?"
+- "claim": "To assist with claims, please tell me the type of insurance and your policy number."
+- "health insurance": "Health insurance policies cover medical expenses. Do you want to know about coverage, premiums, or claims process?"
+- "life insurance": "Life insurance provides financial security for your loved ones. What specific information are you looking for?"
+- "quote", "price": "I can help you with a quote. What type of insurance are you interested in?"
+- "thank you", "thanks": "You're welcome! Is there anything else I can assist you with?"
+- "bye", "goodbye": "Goodbye! Have a great day. Feel free to reach out if you have more questions."
+
+**Fallback Response:**
+- If no keyword is matched: "I'm sorry, I don't have information on that specific query yet. Can you please rephrase or ask about common insurance topics?"
+
+**Future Considerations for LLM Integration:**
+If integrating a large language model, the prompt would evolve to include:
+- A detailed persona description for the bot (e.g., "You are a helpful, empathetic, and knowledgeable insurance agent from ValuEnable...").
+- Instructions on how to utilize an external knowledge base for factual answers (RAG).
+- Guidelines for handling sensitive information and maintaining conversational context.
+- Examples of desired conversational turns for complex scenarios.

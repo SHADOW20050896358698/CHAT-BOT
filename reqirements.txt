@@ -1,0 +1,1 @@
+This project does not have external Python/Node.js dependencies. It runs directly in a web browser.
