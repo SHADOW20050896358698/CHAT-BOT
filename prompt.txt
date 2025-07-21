@@ -1,26 +1,33 @@
 # SHADOW INSURE BOT: Prompting Strategy
 
-**Objective:** To simulate a conversational voice AI assistant for insurance queries.
+**Objective:** To simulate a conversational voice AI assistant for insurance queries, primarily operating based on keyword recognition for predefined responses
 
 **Current Logic (as implemented in getBotResponse function):**
-The bot processes user input by converting it to lowercase and checking for the presence of specific keywords.
+The bot processes user input by converting it to lowercase and checking for the presence of specific keywords[cite: 2].
 
 **Keyword-Response Mapping:**
-- "hello", "hi": "Hello there! How can I help you with your insurance needs today?"
-- "policy": "Are you looking for information on life insurance, health insurance, or general insurance policies?"
-- "claim": "To assist with claims, please tell me the type of insurance and your policy number."
-- "health insurance": "Health insurance policies cover medical expenses. Do you want to know about coverage, premiums, or claims process?"
-- "life insurance": "Life insurance provides financial security for your loved ones. What specific information are you looking for?"
-- "quote", "price": "I can help you with a quote. What type of insurance are you interested in?"
-- "thank you", "thanks": "You're welcome! Is there anything else I can assist you with?"
-- "bye", "goodbye": "Goodbye! Have a great day. Feel free to reach out if you have more questions."
+- "hello", "hi": "Hello there! How can I help you with your insurance needs today?" [cite: 3]
+- "policy": "Are you looking for information on life insurance, health insurance, or general insurance policies?" [cite: 4]
+- "claim": "To assist with claims, please tell me the type of insurance and your policy number." [cite: 5]
+- "health insurance": "Health insurance policies cover medical expenses. Do you want to know about coverage, premiums, or claims process?" 
+- "life insurance": "Life insurance provides financial security for your loved ones. What specific information are you looking for?" 
+- "quote", "price": "I can help you with a quote. What type of insurance are you interested in?" [cite: 8]
+-"thank you", "thanks": "You're welcome! Is there anything else I can assist you with?" [cite: 9]
+- "bye", "goodbye": "Goodbye! Have a great day. Feel free to reach out if you have more questions." [cite: 10]
+- **New additions based on previous request:**
+    - "policy status", "my policy": "To check your policy status, please provide your policy number. I can then look it up for you."
+    - "renew my policy", "policy renewal": "You can renew your policy online through our website's 'Renewals' section, or I can connect you to a representative. What's your policy type?"
+    - "contact support", "speak to someone", "customer service": "Our customer support team is available from 9 AM to 6 PM IST, Monday to Friday. You can call us at 1800-123-4567 or email support@shadowinsure.com."
+    - "deductible", "premium": "A deductible is the amount you pay out-of-pocket before your insurance starts to cover costs. A premium is your regular payment for coverage. Which one would you like to know more about?"
+    - "add beneficiary", "change beneficiary": "To add or change a beneficiary, please log in to your account on our portal and navigate to the 'Policy Details' section. You can also request a form via email."
+    - "what is covered", "coverage details": "Coverage varies by policy type. Are you asking about health, life, auto, or home insurance coverage?"
 
 **Fallback Response:**
-- If no keyword is matched: "I'm sorry, I don't have information on that specific query yet. Can you please rephrase or ask about common insurance topics?"
+-If no keyword is matched: "I'm sorry, I don't have information on that specific query yet. Can you please rephrase or ask about common insurance topics?" 
 
 **Future Considerations for LLM Integration:**
 If integrating a large language model, the prompt would evolve to include:
-- A detailed persona description for the bot (e.g., "You are a helpful, empathetic, and knowledgeable insurance agent from ValuEnable...").
+- A detailed persona description for the bot (e.g., "You are a helpful, empathetic, and knowledgeable insurance agent from ValuEnable..."). 
 - Instructions on how to utilize an external knowledge base for factual answers (RAG).
 - Guidelines for handling sensitive information and maintaining conversational context.
 - Examples of desired conversational turns for complex scenarios.
