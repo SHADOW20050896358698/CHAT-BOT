@@ -1,6 +1,6 @@
-# SHADOW INSURE BOT: Prompting Strategy
+---SHADOW INSURE BOT: Prompting Strategy
 
-**Objective:** To simulate a conversational voice AI assistant for insurance queries, primarily operating based on keyword recognition for predefined responses
+Objective: To simulate a conversational voice AI assistant for insurance queries, primarily operating based on keyword recognition for predefined responses
 
 **Current Logic (as implemented in getBotResponse function):**
 The bot processes user input by converting it to lowercase and checking for the presence of specific keywords[cite: 2].
@@ -31,3 +31,4 @@ If integrating a large language model, the prompt would evolve to include:
 - Instructions on how to utilize an external knowledge base for factual answers (RAG).
 - Guidelines for handling sensitive information and maintaining conversational context.
 - Examples of desired conversational turns for complex scenarios.
+
